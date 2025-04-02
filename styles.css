@@ -123,11 +123,38 @@ nav ul li a:hover::after {
 
 .hero h2 {
   font-size: 64px;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: -1px;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.hero .destaque {
+  display: inline-block;
+  background-color: #4e8b7a;
+  color: white;
+  font-size: 22px;
+  font-weight: 700;
+  padding: 8px 20px;
+  border-radius: 30px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .hero p {
@@ -176,19 +203,19 @@ nav ul li a:hover::after {
 }
 
 .servicos-grid {
-  display: grid; /* Voltando para Grid */
+  display: grid;
   grid-template-columns: repeat(
-    auto-fit,
-    minmax(220px, 1fr)
-  ); /* auto-fit com min menor */
-  gap: 20px; /* Gap entre colunas */
-  /* max-width: 1200px; */ /* Remover max-width para usar espaço do container */
-  margin: 0 auto; /* Manter centralizado se container for maior */
+    6,
+    1fr
+  ); /* Exatamente 6 colunas para os 6 serviços */
+  gap: 15px;
+  margin: 0 auto;
+  max-width: 1400px;
 }
 
 .servico {
   background: #fff;
-  padding: 40px 30px; /* Ajustado o padding interno */
+  padding: 25px 15px; /* Padding reduzido para caber em uma linha */
   border-radius: 16px; /* Bordas mais arredondadas, estilo moderno */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Sombra mais suave e ampla */
   text-align: center; /* Centralizar texto dentro do card */
@@ -223,17 +250,31 @@ nav ul li a:hover::after {
   width: 100%;
 }
 
+.servico-destaque {
+  border-bottom: 3px solid #4e8b7a;
+  position: relative;
+  overflow: hidden;
+  background-color: #f9fff9;
+  box-shadow: 0 10px 35px rgba(78, 139, 122, 0.15);
+}
+
+.servico-destaque h3 {
+  color: #4e8b7a;
+  font-weight: 800;
+  font-size: 24px;
+}
+
 .servico h3 {
   color: #333; /* Cor do título do card mais escura para contraste */
-  margin-bottom: 20px;
-  font-size: 28px;
+  margin-bottom: 15px;
+  font-size: 22px;
   font-weight: 700;
 }
 
 .servico p {
   color: #555; /* Cor do texto do card levemente ajustada */
-  line-height: 1.8;
-  font-size: 18px;
+  line-height: 1.5;
+  font-size: 16px;
   flex-grow: 1; /* Adicionado para permitir que o parágrafo expanda e alinhe os cards */
 }
 
@@ -620,6 +661,10 @@ nav ul li a:hover::after {
   .galeria-item {
     height: 380px;
   }
+
+  .servicos-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas em tablets */
+  }
 }
 
 @media (max-width: 768px) {
@@ -657,6 +702,11 @@ nav ul li a:hover::after {
     margin-bottom: 30px;
   }
 
+  .hero .destaque {
+    font-size: 18px;
+    padding: 6px 16px;
+  }
+
   .servicos,
   .atendimento,
   .sobre,
@@ -675,6 +725,10 @@ nav ul li a:hover::after {
 
   .servico {
     padding: 30px;
+  }
+
+  .servicos-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas em tablets menores */
   }
 
   .galeria-grid {
@@ -740,6 +794,12 @@ nav ul li a:hover::after {
     font-size: 18px;
   }
 
+  .hero .destaque {
+    font-size: 16px;
+    padding: 5px 14px;
+    margin-bottom: 20px;
+  }
+
   .btn {
     padding: 15px 30px;
     font-size: 16px;
@@ -750,6 +810,10 @@ nav ul li a:hover::after {
   .contato-info,
   .galeria-grid {
     gap: 20px;
+  }
+
+  .servicos-grid {
+    grid-template-columns: 1fr; /* 1 coluna em celulares */
   }
 
   .galeria-grid {
@@ -782,4 +846,37 @@ nav ul li a:hover::after {
   .contato-info p {
     font-size: 18px;
   }
+}
+
+/* Botão de WhatsApp Flutuante */
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 30px;
+  right: 30px;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  background-color: #20ba5a;
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-icon {
+  width: 30px;
+  height: 30px;
+  color: white;
 }
