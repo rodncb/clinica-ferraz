@@ -13,6 +13,53 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" href="./assets/logo.png" type="image/png" />
     <link rel="apple-touch-icon" href="./assets/logo.png" />
+
+    <!-- Google tag (gtag.js) - Google Ads -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-11223035593"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "AW-11223035593");
+    </script>
+
+    <!-- Funções de Conversão do Google Ads -->
+    <script>
+      // Função para rastrear clique no WhatsApp de Vendas (Botão Flutuante)
+      function trackWhatsAppVendas() {
+        gtag("event", "conversion", {
+          send_to: "AW-11223035593/uRb_CJXEkq0bEMndx-cp",
+          event_category: "WhatsApp",
+          event_label: "Vendas - Botão Flutuante",
+        });
+        console.log("Conversão rastreada: WhatsApp Vendas");
+      }
+
+      // Função para rastrear clique no WhatsApp de Agendamento
+      function trackWhatsAppAgendamento() {
+        gtag("event", "conversion", {
+          send_to: "AW-11223035593/0HpWCKm6ma0bEMndx-cp",
+          event_category: "WhatsApp",
+          event_label: "Agendamento Veterinário",
+        });
+        console.log("Conversão rastreada: WhatsApp Agendamento");
+      }
+
+      // Função para rastrear clique no WhatsApp da Loja
+      function trackWhatsAppLoja() {
+        gtag("event", "conversion", {
+          send_to: "AW-11223035593/byx4CO6FpK0bEMndx-cp",
+          event_category: "WhatsApp",
+          event_label: "Loja e Dúvidas",
+        });
+        console.log("Conversão rastreada: WhatsApp Loja");
+      }
+    </script>
   </head>
   <body>
     <header class="header">
@@ -42,6 +89,7 @@
           href="https://wa.me/5515981303244?text=Ol%C3%A1!%20Vim%20do%20site%3A%20clinicaveterinariaferraz.com.br%20e%20gostaria%20de%20fazer%20um%20agendamento!"
           target="_blank"
           class="btn"
+          onclick="trackWhatsAppVendas()"
           >Agende a castração</a
         >
       </div>
@@ -100,12 +148,24 @@
             <div class="atendimento-card">
               <div class="card-icon">📱</div>
               <h3>WhatsApp para Agendamento Veterinário</h3>
-              <p><a href="https://wa.me/5515981303244">(15) 98130-3244</a></p>
+              <p>
+                <a
+                  href="https://wa.me/5515981303244"
+                  onclick="trackWhatsAppAgendamento()"
+                  >(15) 98130-3244</a
+                >
+              </p>
             </div>
             <div class="atendimento-card">
               <div class="card-icon">🛒</div>
               <h3>WhatsApp (Loja, Dúvidas e Vendas)</h3>
-              <p><a href="https://wa.me/5515930122565">(15) 3012-2565</a></p>
+              <p>
+                <a
+                  href="https://wa.me/5515930122565"
+                  onclick="trackWhatsAppLoja()"
+                  >(15) 3012-2565</a
+                >
+              </p>
             </div>
             <div class="atendimento-card">
               <div class="card-icon">☎️</div>
@@ -223,6 +283,7 @@
       class="whatsapp-float"
       target="_blank"
       aria-label="Fale conosco pelo WhatsApp"
+      onclick="trackWhatsAppVendas()"
     >
       <svg
         class="whatsapp-icon"
