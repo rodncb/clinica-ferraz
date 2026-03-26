@@ -527,17 +527,23 @@ body {
   gap: 20px;
   max-width: 960px;
   margin: 0 auto;
-  justify-items: center;
 }
 
 .vacinas-grid.grid-2 {
-  grid-template-columns: repeat(2, minmax(0, 320px));
+  display: flex;
   justify-content: center;
+  gap: 20px;
+}
+
+.vacinas-grid.grid-2 .vacina-card {
+  width: 320px;
+  flex-shrink: 0;
 }
 
 .vacinas-grid.grid-4 {
   grid-template-columns: repeat(4, 1fr);
   max-width: 1100px;
+  justify-items: stretch;
 }
 
 .vacina-card {
@@ -1108,8 +1114,10 @@ body {
   .atendimento-cards { grid-template-columns: 1fr; }
 
   .vacinas-grid,
-  .vacinas-grid.grid-2,
   .vacinas-grid.grid-4 { grid-template-columns: 1fr; }
+
+  .vacinas-grid.grid-2 { flex-direction: column; align-items: center; }
+  .vacinas-grid.grid-2 .vacina-card { width: 100%; }
 
   .sobre-stats { flex-direction: column; padding: 28px 24px; gap: 24px; }
   .stat-divider { width: 60px; height: 1px; margin: 0 auto; }
